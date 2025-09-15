@@ -26,8 +26,7 @@ It automatically categorizes transactions, detects anomalies (fraud/unusual acti
 ---
 
 ## 🚀 Quick Start (Windows PowerShell)
-
-### 0. Prerequisites
+Prerequisites
 - [Python 3.11+](https://www.python.org/downloads/)  
 - [Node.js 18+](https://nodejs.org/)  
 - [Git](https://git-scm.com/)  
@@ -35,12 +34,13 @@ It automatically categorizes transactions, detects anomalies (fraud/unusual acti
 ---
 
 1. Allow PowerShell scripts (first time only)
+   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
 2. Start all services with one script
 
-From project root:
+   From project root:
 
-.\start-all.ps1
+   .\start-all.ps1
 
 
 This opens 3 PowerShell windows:
@@ -52,11 +52,11 @@ Backend → http://127.0.0.1:4000/api
 Frontend → http://localhost:3000
 
 3. Manual run (alternative)
-ML Service (Python + FastAPI)
-cd ml_service
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
+   ML Service (Python + FastAPI)
+   cd ml_service
+   python -m venv .venv
+   .\.venv\Scripts\Activate.ps1
+   pip install -r requirements.txt
 
 # generate synthetic training data
 python .\data\generate_data.py --out .\data\demo.csv --n 5000
@@ -113,10 +113,10 @@ Example response:
   "is_anomaly": false
 }
 
-🐳 (Optional) Docker Compose
+(Optional) Docker Compose
 docker-compose up --build
 
-📌 Verification Checklist
+Verification Checklist
 
 ✅ ML service responds at http://127.0.0.1:8000/health
 
@@ -126,7 +126,7 @@ docker-compose up --build
 
 ✅ Charts update when simulating new transactions
 
-📂 Repository Structure
+Repository Structure
 personal-finance-dashboard/
 │── backend/        # Node.js Express API
 │── frontend/       # React Dashboard
