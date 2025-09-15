@@ -43,13 +43,13 @@ Prerequisites
    .\start-all.ps1
 
 
-This opens 3 PowerShell windows:
+   This opens 3 PowerShell windows:
 
-ML Service → http://127.0.0.1:8000
+   ML Service → http://127.0.0.1:8000
 
-Backend → http://127.0.0.1:4000/api
+   Backend → http://127.0.0.1:4000/api
 
-Frontend → http://localhost:3000
+   Frontend → http://localhost:3000
 
 3. Manual run (alternative)
    ML Service (Python + FastAPI)
@@ -58,51 +58,51 @@ Frontend → http://localhost:3000
    .\.venv\Scripts\Activate.ps1
    pip install -r requirements.txt
 
-# generate synthetic training data
-python .\data\generate_data.py --out .\data\demo.csv --n 5000
+   generate synthetic training data
+   python .\data\generate_data.py --out .\data\demo.csv --n 5000
 
-# train models (saved in ../models)
-python -m app.train --data .\data\demo.csv --out_dir ..\models
+   train models (saved in ../models)
+   python -m app.train --data .\data\demo.csv --out_dir ..\models
 
-# run ML service
-uvicorn app.main:app --reload --port 8000
-
-
-Health check:
-
-Invoke-WebRequest -Uri "http://127.0.0.1:8000/health" | Select-Object -ExpandProperty Content
-
-Backend (Node.js + Express)
-cd backend
-npm install
-npm run dev
+   run ML service
+   uvicorn app.main:app --reload --port 8000
 
 
-Health check:
+    Health check:
 
-Invoke-WebRequest -Uri "http://127.0.0.1:4000/api/transactions" | Select-Object -ExpandProperty Content
+    Invoke-WebRequest -Uri "http://127.0.0.1:8000/health" | Select-Object -ExpandProperty Content
 
-Frontend (React)
-cd frontend
-npm install
-# create .env file if missing:
-# REACT_APP_API_BASE=http://127.0.0.1:4000/api
-npm start
+    Backend (Node.js + Express)
+    cd backend
+    npm install
+    npm run dev
 
 
-Open: http://localhost:3000
+    Health check:
 
-4. Quick Tests
+    Invoke-WebRequest -Uri "http://127.0.0.1:4000/api/transactions" | Select-Object -ExpandProperty Content
 
-Ingest a transaction:
+    Frontend (React)
+    cd frontend
+    npm install
+    create .env file if missing:
+    REACT_APP_API_BASE=http://127.0.0.1:4000/api
+    npm start
 
-Invoke-WebRequest -Uri "http://127.0.0.1:4000/api/transactions/ingest" `
-  -Method POST -ContentType "application/json" `
-  -Body '{"amount":150,"merchant":"Amazon","description":"books"}' |
-  Select-Object -ExpandProperty Content
+
+    Open: http://localhost:3000
+
+ 4. Quick Tests
+
+   Ingest a transaction:
+
+   Invoke-WebRequest -Uri "http://127.0.0.1:4000/api/transactions/ingest" `
+   -Method POST -ContentType "application/json" `
+   -Body '{"amount":150,"merchant":"Amazon","description":"books"}' |
+   Select-Object -ExpandProperty Content
 
 
-Example response:
+   Example response:
 
 {
   "amount": 150,
