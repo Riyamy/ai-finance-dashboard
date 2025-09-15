@@ -113,29 +113,29 @@ Prerequisites
   "is_anomaly": false
 }
 
-(Optional) Docker Compose
-docker-compose up --build
+  (Optional) Docker Compose
+  docker-compose up --build
 
-Verification Checklist
+  Verification Checklist
 
-✅ ML service responds at http://127.0.0.1:8000/health
+  ✅ ML service responds at http://127.0.0.1:8000/health
 
-✅ Backend responds at http://127.0.0.1:4000/api/transactions
+  ✅ Backend responds at http://127.0.0.1:4000/api/transactions
 
-✅ Frontend dashboard loads at http://localhost:3000
+  ✅ Frontend dashboard loads at http://localhost:3000
 
-✅ Charts update when simulating new transactions
+  ✅ Charts update when simulating new transactions
 
-Repository Structure
-personal-finance-dashboard/
-│── backend/        # Node.js Express API
-│── frontend/       # React Dashboard
-│── ml_service/     # FastAPI ML service
-│── models/         # Saved ML models (after training)
-│── docker-compose.yml
-│── start-all.ps1   # Windows helper script
-│── README.md
-│── .gitignore
+  Repository Structure
+  personal-finance-dashboard/
+  │─ backend/        # Node.js Express API
+  │─ frontend/       # React Dashboard
+  │─ ml_service/     # FastAPI ML service
+  │─ models/         # Saved ML models (after training)
+  │─ docker-compose.yml
+  │─ start-all.ps1   # Windows helper script
+  │─ README.md
+  │─ .gitignore
 
 
 
