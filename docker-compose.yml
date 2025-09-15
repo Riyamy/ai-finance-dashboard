@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  ml_service:
+    build: ./ml_service
+    container_name: ml_service
+    ports:
+      - "8000:8000"
+  backend:
+    build: ./backend
+    container_name: backend
+    ports:
+      - "4000:4000"
+    depends_on:
+      - ml_service
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "3000:3000"
