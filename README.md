@@ -24,7 +24,7 @@ It categorizes transactions, detects anomalies (fraud/unusual activity), and sho
 ### 2. Allow PowerShell scripts (first time only)
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-### 3. Start all services (easiest)
+3. Start all services (easiest)
 
 From project root:
 .\start-all.ps1
